@@ -6,6 +6,8 @@ import * as path from 'path';
 import { downloadAndUnzipVSCode, resolveCliPathFromVSCodeExecutablePath, runTests  } from 'vscode-test';
 
 async function main(): Promise<void> {
+
+    console.log(process.env['JAVA_HOME']);
     try {
         // The folder containing the Extension Manifest package.json
         // Passed to `--extensionDevelopmentPath`
@@ -31,6 +33,7 @@ async function main(): Promise<void> {
             extensionTestsPath: path.resolve(__dirname, './maven-junit4-suite'),
             extensionTestsEnv: {
                 ...process.env,
+                npm_config_prefix: '',
             },
             launchArgs: [
                 path.join(__dirname, '..', '..', 'test', 'test-projects', 'junit4'),
@@ -44,6 +47,7 @@ async function main(): Promise<void> {
             extensionTestsPath: path.resolve(__dirname, './gradle-modular-suite'),
             extensionTestsEnv: {
                 ...process.env,
+                npm_config_prefix: '',
             },
             launchArgs: [
                 path.join(__dirname, '..', '..', 'test', 'test-projects', 'modular-gradle'),
