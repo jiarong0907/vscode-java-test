@@ -29,6 +29,9 @@ async function main(): Promise<void> {
             vscodeExecutablePath,
             extensionDevelopmentPath,
             extensionTestsPath: path.resolve(__dirname, './maven-junit4-suite'),
+            extensionTestsEnv: {
+                ...process.env,
+            },
             launchArgs: [
                 path.join(__dirname, '..', '..', 'test', 'test-projects', 'junit4'),
             ],
@@ -39,6 +42,9 @@ async function main(): Promise<void> {
             vscodeExecutablePath,
             extensionDevelopmentPath,
             extensionTestsPath: path.resolve(__dirname, './gradle-modular-suite'),
+            extensionTestsEnv: {
+                ...process.env,
+            },
             launchArgs: [
                 path.join(__dirname, '..', '..', 'test', 'test-projects', 'modular-gradle'),
             ],
